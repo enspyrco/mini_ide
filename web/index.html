@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="spinner.css">
+
   <base href="/">
 
   <meta charset="UTF-8">
@@ -21,6 +23,9 @@
   
 </head>
 <body>
+  <!-- Add a loading spinner in the center of the screen -->
+  <div id="centerOfScreen" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+
   <script>
     function loadMainDartJs() {
       var scriptTag = document.createElement('script');
