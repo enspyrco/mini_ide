@@ -3,7 +3,7 @@
 <head>
   <link rel="stylesheet" href="spinner.css">
 
-  <base href="/">
+  <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -20,20 +20,29 @@
 
   <title>mini_ide</title>
   <link rel="manifest" href="manifest.json">
-  
-</head>
-<body>
-  <!-- Add a loading spinner in the center of the screen -->
-  <div id="centerOfScreen" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 
   <script>
-    function loadMainDartJs() {
-      var scriptTag = document.createElement('script');
-      scriptTag.src = 'main.dart.js';
-      scriptTag.type = 'application/javascript';
-      document.body.append(scriptTag);
-    }
-    loadMainDartJs();
+    // The value below is injected by flutter build, do not touch.
+    var serviceWorkerVersion = null;
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
+</head>
+<body>
+  <script>
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
+    });
   </script>
 </body>
 </html>
