@@ -1,10 +1,10 @@
 name: mini_ide
 description: A mini-ide that can be added to other Flutter apps.
 publish_to: 'none'
-version: 0.0.1
+version: 0.0.0-a1
 
 environment:
-  sdk: ">=2.15.0-116.0.dev <3.0.0"
+  sdk: '>=3.0.0-417.3.beta <4.0.0'
 
 dependencies:
   flutter:
@@ -13,8 +13,4 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  flutter_lints: ^1.0.0
-
-flutter:
-  uses-material-design: true
+  flutter_lints: ^2.0.0
